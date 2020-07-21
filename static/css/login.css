@@ -1,0 +1,79 @@
+html,body{
+  background-color: #282c35;
+  font-family: monospace;
+  font-size: 1.04em;
+}
+.container{
+  background-color: #20252c;
+  text-align: center;
+}
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  position: relative;
+  padding-top: 2.5em;
+}
+#login-error-container{
+    text-align: center;
+    color: #ee616e;
+    font-size: 0.9em;
+}
+#login-container{
+  padding: 1em 0em 2em 0em;
+}
+/* Full-width input fields */
+input[type=text]{
+  max-width: 13em;
+  border-radius: .4em;
+  text-align: center;
+  padding: 0.6em 0em 0.6em 0em;
+
+  box-shadow: inset 1px 1px 5px 1px #191b22;
+  border: 1px solid #20252c;
+  color: #8fee00; /*#dae1f0;*/
+  background-color: #1b1d24; /*#484c55;*/
+}
+input::placeholder {
+  color: #545d6c;
+}
+
+/* Set a style for all buttons */
+.a-button {
+  padding: 0.4em 1.3em 0.4em 1.3em;
+  color: #dae1f0; /*#dae1f0;*/
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: .2em;
+  background-color: #5a7dd7;
+}
+.a-button:hover{
+  background-color: #6a8de7;
+}
+.a-button:active {
+  background-color: #7a9df7;
+}
+
+@media (min-width: 550px) {
+  .container{
+    margin-top: 10%;
+    max-width: 30em;
+    box-shadow: 0.4em 0.7em 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .form-container{
+      padding: 3em 3.5em 0em 3.5em;
+  }
+}
+
+@media (max-width: 549px) {
+  .container,html,body {
+    width: 100%;
+    height: 100%;
+  }
+  .form-container{
+      padding: 3em 1em 1em 1em;
+  }
+  #login-container{
+    padding: 0.5em 0em 2em 0em;
+  }
+}

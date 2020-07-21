@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+      <link rel="shortcut icon" href="{{ url_for('static', filename='icns/page_icon.png') }}">
+      <title>
+      </title>
+
+    </head>
+    <body>
+        <div id="main-container" >
+            <nav id="home-navigation" class="row">
+                <div class="nav-item nav-item-side"><br>
+                  <img onclick="leftClicked()" id="left-arrow" src="{{url_for('static', filename='icns/left.png')}}" alt="Avatar" class="avatar arroz">
+                </div>
+
+                <div class="nav-item nav-item-center">
+                  <img id="flack-logo" src="{{url_for('static', filename='icns/chat_header.png')}}" style="width:5em;" alt="Avatar" class="avatar">
+                  <div id="uname_channel">
+                    <h5><span id="navbar-uname" style='color:#8fee00;'></span><br><span style='color:#aab1c0;'>@</span><span style='color:#848d9c;'>flack/</span><span style='color:#63bf72;' id="navbar-chname"></span></h5>
+                  </div>
+                </div>
+                <div class="nav-item nav-item-side"><br>
+                  <img onclick="rightClicked()" id="right-arrow" src="{{url_for('static', filename='icns/right.png')}}" alt="Avatar" class="avatar arroz">
+                </div>
+            </nav>
+
+
+
+            <div id="content-container">
+              <div id="sub-content-container" class="row">
+
+                  <div id="channels-containers" class="cont-item"><br>
+                    <span class="chgroup-label" style="padding-left:4em;">~/default_channels/</span>
+                    <div id="channel-list-predef" class="channel-list-predef">
+                    </div><br>
+                    <div id="add-channel">
+                          <div id="accordion">
+                            <div class="card">
+                              <div class="card-header">
+                                <span  data-toggle="tooltip" data-placement="top" title="" data-original-title="add new channel"  class="chtooltip">
+                                  <a class="card-link" data-toggle="collapse" href="#collapseOne"><button class="btn btn-outline-dark" style="color:white;">+</button></a>
+                                </span><span class="chgroup-label">~/user_channels/</span>
+                              </div>
+                              <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                  <div id="newcherror" style="color:red; padding-bottom:0.5em;">
+                                  </div>
+                                  <form action="javascript:create_channel();"  id="newchannelform" class="form-inline">
+                                    <input id="newchname" type="text" class="form-control mr-1"  name="newchname" placeholder="new channel name" required/>
+                                    <button class="btn btn-light" type="submit">+</button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                    </div>
+
+
+                    <div id="channel-list-usr" class="channel-list-usr">
+                    </div>
+
+                  </div>
+
+                  <div id="conversation-container" class="cont-item">
+                      <div id="msg-list-wrapper" style="overflow-y:auto;">
+                        <div id="mesage-list-cont">
+                            <div id="messages-list" >
+                            </div>
+                        </div>
+                      </div>
+                      <div id="message-input-area">
+                        <div id="message-input-container">
+                            <textarea id="message-input" rows="2" placeholder="Type new message"></textarea>
+                            <img onclick="sendMessage()" id="send-message-btn" src="{{url_for('static', filename='icns/send.png')}}" alt="Avatar" class="avatar arroz">
+                        </div>
+                      </div>
+                  </div>
+
+                  <div id="users-container" class="cont-item">
+                    <div>
+                      <span class="chgroup-label" style="padding-left:1em; font-size:0.8em;">channel_users/</span>
+                    </div>
+                    <div id="users-list" style="padding-left:1em;">
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+        </div>
+    </body>
+</html>
